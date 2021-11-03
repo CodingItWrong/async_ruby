@@ -2,11 +2,9 @@ require 'async'
 require 'async/http/internet'
 require 'open-uri'
 
-puts "RUBY #{RUBY_VERSION}"
+puts "Ruby #{RUBY_VERSION}"
 
 def run_uri_open
-  puts 'URI::OPEN'
-
   start = Time.now
 
   Async do |task|
@@ -19,12 +17,10 @@ def run_uri_open
     end
   end
 
-  puts "Duration: #{Time.now - start}"
+  puts "URI.open duration: #{Time.now - start}"
 end
 
 def run_async_http
-  puts 'ASYNC-HTTP'
-
   start = Time.now
 
   Async do |task|
@@ -39,7 +35,7 @@ def run_async_http
     end
   end
 
-  puts "Duration: #{Time.now - start}"
+  puts "Async::HTTP duration: #{Time.now - start}"
 end
 
 run_uri_open
